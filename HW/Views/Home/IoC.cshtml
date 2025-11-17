@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "IoC";
+}
+
+<div class="text-center">
+    <h1 class="display-4">IoC</h1>
+</div>
+
+@model HW.Models.HomeIocViewModel
+@inject HW.Services.IMessageService Service
+
+<h2>IoC Demonstration</h2>
+
+<p>Хеш-код сервісу у контролері: @Model.ControllerHash</p>
+<p>Хеш-код сервісу у Razor: @Service.GetHashCode()</p>
+
+<p>Повідомлення: @Model.Message</p>
+

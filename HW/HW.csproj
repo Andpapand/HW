@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="HW 1 screenshot\" />
+    <Folder Include="HW 2 screenshot\" />
   </ItemGroup>
 
 </Project>

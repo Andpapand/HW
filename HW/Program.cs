@@ -1,3 +1,5 @@
+using HW.Services;
+
 namespace HW
 {
     /*HW 1
@@ -23,6 +25,14 @@ namespace HW
      https://getbootstrap.com/docs/5.3/content/tables/   */
 
 
+    /*HW 3
+
+    Д.З. Створити модель для представлення ІоС (HomeIocViewModel), 
+    замінити передачу даних через ViewData, реалізувати підпис для даних, що виводяться:
+    хеш-код сервіса у контролері: 86707860 хеш-код сервіса у Razor: .... ....
+
+     */
+
     public class Program
     {
         public static void Main(string[] args)
@@ -31,6 +41,9 @@ namespace HW
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddScoped<IMessageService, MessageService>();
+
 
             var app = builder.Build();
 

@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using HW.Models;
+using HW.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HW.Controllers
@@ -7,10 +8,12 @@ namespace HW.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IMessageService _service;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IMessageService service)
         {
             _logger = logger;
+            _service = service;
         }
 
         public IActionResult Index()
@@ -31,6 +34,17 @@ namespace HW.Controllers
         public IActionResult History()
         {
             return View();
+        }
+
+        public IActionResult IoC()
+        {
+            var model = new HomeIocViewModel
+            {
+                ControllerHash = _service.GetHashCode(),
+                Message = _service.GetMessage()
+            };
+
+            return View(model);
         }
 
         public IActionResult Privacy()
